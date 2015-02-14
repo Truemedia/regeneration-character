@@ -1,0 +1,58 @@
+/**
+ * Colorbooks
+ *
+ * Import any colorly colorbooks you use for your palette, optionally import them all (warning: will be slow)
+ */
+@import "./../bower_components/colorly/scss/_colorly";
+// @import "./../../bower_components/colorly/scss/_book-obi.scss";
+
+/* All colors you use within your theme should be declared here */
+
+$character-palette:
+(
+	filmmegarex-d-mg-economy-grade("d-mg-6630")
+	filmmegarex-d-mg-economy-grade("d-mg-6631")
+	filmmegarex-d-mg-economy-grade("d-mg-6632")
+	filmmegarex-d-mg-economy-grade("d-mg-6633")
+	filmmegarex-d-mg-economy-grade("d-mg-6641")
+	filmmegarex-d-mg-economy-grade("d-mg-6642")
+	filmmegarex-d-mg-economy-grade("d-mg-6640")
+	filmmegarex-d-mg-economy-grade("d-mg-6643")
+	filmmegarex-d-mg-economy-grade("d-mg-6644")
+	filmmegarex-d-mg-economy-grade("d-mg-6645")
+	filmmegarex-d-mg-economy-grade("d-mg-6650")
+	filmmegarex-d-mg-economy-grade("d-mg-6651")
+	filmmegarex-d-mg-economy-grade("d-mg-6652")
+	filmmegarex-d-mg-economy-grade("d-mg-6653")
+	filmmegarex-d-mg-economy-grade("d-mg-6654")
+	filmmegarex-d-mg-economy-grade("d-mg-6655")
+	filmmegarex-d-mg-economy-grade("d-mg-6656")
+	filmmegarex-d-mg-economy-grade("d-mg-6657")
+	filmmegarex-d-mg-economy-grade("d-mg-6670")
+	filmmegarex-d-mg-economy-grade("d-mg-6680")
+	filmmegarex-d-mg-economy-grade("d-mg-6691")
+	filmmegarex-d-mg-economy-grade("d-mg-6692")
+	filmmegarex-d-mg-economy-grade("d-mg-6693")
+	filmmegarex-d-mg-economy-grade("d-mg-6694")
+	filmmegarex-d-mg-economy-grade("d-mg-6690")
+	filmmegarex-d-mg-economy-grade("d-mg-6695")
+	filmmegarex-d-mg-economy-grade("d-mg-6686")
+	filmmegarex-d-mg-economy-grade("d-mg-6696")
+	filmmegarex-d-mg-economy-grade("d-mg-6697")
+	filmmegarex-d-mg-economy-grade("d-mg-6661")
+	filmmegarex-d-mg-economy-grade("d-mg-6662")
+	filmmegarex-d-mg-economy-grade("d-mg-6663")
+	filmmegarex-d-mg-economy-grade("d-mg-6660")
+	filmmegarex-d-mg-economy-grade("d-mg-6664")
+	filmmegarex-d-mg-economy-grade("d-mg-6665")
+	filmmegarex-d-mg-economy-grade("d-mg-6666")
+	filmmegarex-d-mg-economy-grade("d-mg-6800")
+	filmmegarex-d-mg-economy-grade("d-mg-6801")
+	filmmegarex-d-mg-economy-grade("d-mg-6802")
+	filmmegarex-d-mg-economy-grade("d-mg-6803")
+	filmmegarex-d-mg-economy-grade("d-mg-6700")
+	filmmegarex-d-mg-economy-grade("d-mg-6710")
+	filmmegarex-d-mg-economy-grade("d-mg-6720")
+	filmmegarex-d-mg-economy-grade("d-mg-6620")
+	filmmegarex-d-mg-economy-grade("d-mg-6610")
+);

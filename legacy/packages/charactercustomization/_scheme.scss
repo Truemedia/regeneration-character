@@ -1,0 +1,25 @@
+/**
+ * Color Scheme
+ *
+ * This is how your colors should be implemented in rest of application, to allow abstraction on hierachy rather than color names
+ */
+@import "./_palette.scss";
+
+$character-color-scheme:
+(
+  primary: map-get($character-palette, yellow),
+  secondary: map-get($character-palette, orange),
+  tertiary: map-get($character-palette, red),
+  quaternary: map-get($character-palette, blue),
+  quinary: map-get($character-palette, purple),
+  senary: map-get($character-palette, green),
+  septenary: map-get($character-palette, grey)
+);
+
+$primary-color: map-get($character-color-scheme, primary) !default;
+$secondary-color: map-get($character-color-scheme, secondary) !default;
+$tertiary-color: map-get($character-color-scheme, tertiary) !default;
+$quaternary-color: map-get($character-color-scheme, quaternary) !default;
+$quinary-color: map-get($character-color-scheme, quinary) !default;
+$senary-color: map-get($character-color-scheme, senary) !default;
+$septenary-color: map-get($character-color-scheme, septenary) !default;

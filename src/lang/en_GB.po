@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-02-14 15:05-0000\n"
+"PO-Revision-Date: 2015-02-14 15:06-0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../..\n"
+
+#: ../../public/templates/src/partial.hbs:3
+#: ../../public/templates/src/partial.hbs:19
+msgid "Login"
+msgstr "Login"
+
+#: ../../public/templates/src/partial.hbs:9
+msgid "Username"
+msgstr "Username"
+
+#: ../../public/templates/src/partial.hbs:12
+msgid "Password"
+msgstr "Password"
+
+#: ../../public/templates/src/partial.hbs:16
+msgid "Remember Me"
+msgstr "Remember Me"
+
+#: ../../public/templates/src/partial.hbs:20
+msgid "Quick play as guest"
+msgstr "Quick play as guest"
+
+#: ../../public/templates/src/partial.hbs:34
+msgid "Alive"
+msgstr "Alive"
+
+#: ../../public/templates/src/partial.hbs:35
+msgid "Time elapsed"
+msgstr "Time elapsed"
+
+#: ../../public/templates/src/partial.hbs:36
+msgid "Points"
+msgstr "Points"
+
+#: ../../public/templates/src/partial.hbs:58
+msgid "Session variables"
+msgstr "Session variables"
+
+#: ../../public/templates/src/step.hbs:2
+msgid "Choose a character"
+msgstr "Choose a character"
+
+#: ../../public/templates/src/step.hbs:27
+msgid "Select"
+msgstr "Select"
+
+#: ../../public/templates/src/step.hbs:38
+msgid "Occupation"
+msgstr "Occupation"
+
+#: ../../public/templates/src/step.hbs:42
+msgid "About"
+msgstr "About"
+
+#: ../../public/templates/src/step.hbs:60
+msgid "Play as selected character"
+msgstr "Play as selected character"
+
+#: ../../public/templates/src/step.hbs:61
+msgid "Play as random character"
+msgstr "Play as random character"
+
+#: ../../public/templates/src/step.hbs:62
+msgid "Wait for additional players"
+msgstr "Wait for additional players"
+
+#: ../../public/templates/src/step.hbs:63
+msgid "Invite friends to session"
+msgstr "Invite friends to session"

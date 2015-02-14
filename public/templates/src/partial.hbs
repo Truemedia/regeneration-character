@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{_ 'Login' }}</h3>
+          </div>
+          <div class="panel-body">
+            <form id="tab" data-bind="ifnot: loggedin" accept-charset="UTF-8" role="form">
+              <fieldset>
+                <div class="form-group">
+                  <input class="form-control" data-bind="value: username" placeholder="{{_ 'Username' }}" name="username" type="text" />
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="{{_ 'Password' }}" name="password" type="password" value="" />
+              </div>
+              <div class="checkbox">
+                  <label>
+                    <input name="remember" type="checkbox" value="Remember" /> {{_ 'Remember Me' }}
+                  </label>
+                </div>
+                <button class="btn btn-primary btn-block" data-bind="click: loginAsUser">{{_ 'Login' }}</button>
+                <button class="btn btn-primary btn-block" data-bind="click: loginAsGuest">{{_ 'Quick play as guest' }}</button>
+              </fieldset>
+            </form>
+            <form id="tab" data-bind="if: loggedin">
+              <div class="span1">
+                <img src="{{content_pack}}/images/characters/({{character.identifierCamelCase}})_DefaultPose.png" alt="{{full_name}}" />
+              </div>
+              <div class="span4">
+                <blockquote>
+                  <p>{{character.full_name}}</p>
+                  <small><cite title="Source Title"><span data-bind="text: username"></span>, Wade Penistone</cite></small>
+                </blockquote>
+                <!-- Stats -->
+                <p>
+                  <i class="icon-heart"></i>&nbsp; <span id="player_purgatory" class="alive"><span>{{_ 'Alive' }}</span></span> <br />
+                  <i class="icon-time"></i>&nbsp; {{_ 'Time elapsed' }} : N/A <br />
+                  <i class="icon-magnet"></i>&nbsp; {{_ 'Points' }} : <span id="my_score">{{scoredefault}}</span><br />
+                </p>
+              </div>
+            </form>
+            <!-- Realm debugging -->
+            <div class="row">
+              <div class="col-md-4">
+                <h5>X</h5>
+                <p id="x_pos" class="text-primary"></p>
+              </div>
+              <div class="col-md-4">
+                <h5>Y</h5>
+                <p id="y_pos" class="text-primary"></p>
+              </div>
+              <div class="col-md-4">
+                <h5>Z</h5>
+                <p id="z_pos" class="text-primary"></p>
+              </div>
+            </div>
+          </div>
+          <!--<div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{_ 'Session variables' }}</h3>
+            </div>
+            <div class="panel-body">
+              <p>{{session}}</p>
+            </div>
+          </div>-->
+      </div>

@@ -1,0 +1,24 @@
+{
+    "name": "regeneration/character",
+    "description": "",
+    "authors": [
+        {
+            "name": "",
+            "email": "truemedia@mediacityonline.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/controllers",
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Regeneration\\Character\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
