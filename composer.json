@@ -22,5 +22,5 @@
             "Regeneration\\Character\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev-master"
 }
