@@ -1,6 +1,7 @@
 {
     "name": "regeneration/character",
     "description": "Character package for Regeneration",
+    "license": "MIT",
     "authors": [
         {
             "name": "Wade Penistone",
