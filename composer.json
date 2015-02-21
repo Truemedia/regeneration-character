@@ -1,10 +1,10 @@
 {
     "name": "regeneration/character",
-    "description": "",
+    "description": "Character package for Regeneration",
     "authors": [
         {
-            "name": "",
-            "email": "truemedia@mediacityonline.net"
+            "name": "Wade Penistone",
+            "email": "wadespackages@yahoo.com"
         }
     ],
     "require": {
