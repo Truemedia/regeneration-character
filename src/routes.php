@@ -12,3 +12,4 @@
 */
 
 Route::resource('character/manage', 'Regeneration\Character\Controllers\AdminController');
+Route::get('character/install', 'Regeneration\Character\Controllers\AdminController@install');

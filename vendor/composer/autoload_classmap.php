@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Artisan\\InstallCommand' => $baseDir . '/src/commands/InstallCommand.php',
     'Regeneration\\Character\\Controllers\\AdminController' => $baseDir . '/src/controllers/AdminController.php',
 );

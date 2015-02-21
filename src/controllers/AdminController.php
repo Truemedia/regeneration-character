@@ -8,6 +8,16 @@ namespace Regeneration\Character\Controllers;
 	     */
 	    protected $layout = 'layouts.crudl';
 
+	    /**
+		 * Installation page
+		 *
+		 * @return Response
+		 */
+		public function install()
+		{
+			return 'Got an install page';
+		}
+
 		/**
 		 * Display a listing of the resource.
 		 *
