@@ -19,9 +19,14 @@ class CharacterServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+		$root_dir = __DIR__ . '/../../';
+
 		// Include routes
-		include __DIR__ . '/../../routes.php';
-		$this->package('regeneration/character');
+		include $root_dir . 'routes.php';
+
+		// View directory
+		$this->loadViewsFrom($root_dir . 'views', 'character');
+		// $this->package('regeneration/character');
 	}
 
 	/**

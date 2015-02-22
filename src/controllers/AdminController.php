@@ -1,12 +1,12 @@
 <?php
 namespace Regeneration\Character\Controllers;
 
-	class AdminController extends \BaseController
+	class AdminController extends BaseController
 	{
 		/**
 	     * The layout that should be used for standard HTML responses.
 	     */
-	    protected $layout = 'layouts.crudl';
+	    protected $layout = 'character::layouts.crudl';
 
 	    /**
 		 * Installation page
@@ -27,18 +27,7 @@ namespace Regeneration\Character\Controllers;
 		{
 			// Consolidate data
 			$data = array('hello' => 'world');
-
-			// Handle request
-			switch (\Request::format())
-			{
-				case 'json':
-					return Response::json($data); // API
-				break;
-
-				default:
-					$this->layout->content = \View::make('character::admin.listing', $data); // HTML
-				break;
-			}
+			$this->setContent($data);
 		}
 
 
@@ -51,18 +40,7 @@ namespace Regeneration\Character\Controllers;
 		{
 			// Consolidate data
 			$data = array('hello' => 'world');
-
-			// Handle request
-			switch (\Request::format())
-			{
-				case 'json':
-					return Response::json($data); // API
-				break;
-
-				default:
-					$this->layout->content = \View::make('character::admin.create', $data); // HTML
-				break;
-			}
+			$this->setContent($data);
 		}
 
 
@@ -75,18 +53,7 @@ namespace Regeneration\Character\Controllers;
 		{
 			// Consolidate data
 			$data = array('hello' => 'world');
-
-			// Handle request
-			switch (\Request::format())
-			{
-				case 'json':
-					return Response::json($data); // API
-				break;
-
-				default:
-					$this->layout->content = \View::make('character::admin.store', $data); // HTML
-				break;
-			}
+			$this->setContent($data);
 		}
 
 
@@ -100,18 +67,7 @@ namespace Regeneration\Character\Controllers;
 		{
 			// Consolidate data
 			$data = array('hello' => 'world');
-
-			// Handle request
-			switch (\Request::format())
-			{
-				case 'json':
-					return Response::json($data); // API
-				break;
-
-				default:
-					$this->layout->content = \View::make('character::admin.show', $data); // HTML
-				break;
-			}
+			$this->setContent($data);
 		}
 
 
@@ -125,18 +81,7 @@ namespace Regeneration\Character\Controllers;
 		{
 			// Consolidate data
 			$data = array('hello' => 'world');
-
-			// Handle request
-			switch (\Request::format())
-			{
-				case 'json':
-					return Response::json($data); // API
-				break;
-
-				default:
-					$this->layout->content = \View::make('character::admin.edit', $data); // HTML
-				break;
-			}
+			$this->setContent($data);
 		}
 
 
@@ -150,18 +95,7 @@ namespace Regeneration\Character\Controllers;
 		{
 			// Consolidate data
 			$data = array('hello' => 'world');
-
-			// Handle request
-			switch (\Request::format())
-			{
-				case 'json':
-					return Response::json($data); // API
-				break;
-
-				default:
-					$this->layout->content = \View::make('character::admin.update', $data); // HTML
-				break;
-			}
+			$this->setContent($data);
 		}
 
 
@@ -175,17 +109,6 @@ namespace Regeneration\Character\Controllers;
 		{
 			// Consolidate data
 			$data = array('hello' => 'world');
-
-			// Handle request
-			switch (\Request::format())
-			{
-				case 'json':
-					return Response::json($data); // API
-				break;
-
-				default:
-					$this->layout->content = \View::make('character::admin.destroy', $data); // HTML
-				break;
-			}
+			$this->setContent($data);
 		}
 	}
