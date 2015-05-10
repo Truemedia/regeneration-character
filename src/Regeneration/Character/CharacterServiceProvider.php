@@ -1,7 +1,7 @@
 <?php namespace Regeneration\Character;
-
 use Illuminate\Support\ServiceProvider;
 use App\Artisan\InstallCommand;
+use App\Artisan\SimulationCommand;
 
 class CharacterServiceProvider extends ServiceProvider {
 
@@ -19,14 +19,10 @@ class CharacterServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$root_dir = __DIR__ . '/../../';
+		$dir = __DIR__ . '/../../';
 
-		// Include routes
-		include $root_dir . 'routes.php';
-
-		// View directory
-		$this->loadViewsFrom($root_dir . 'views', 'character');
-		// $this->package('regeneration/character');
+		// Setup resources
+		$this->setupResources($dir);
 	}
 
 	/**
@@ -39,7 +35,8 @@ class CharacterServiceProvider extends ServiceProvider {
 		// Register commands
 		$this->registerCommands();
 
-        $this->commands('install');
+		// List of commands
+        $this->commands( array('install', 'simulation') );
 	}
 
 	/**
@@ -53,6 +50,23 @@ class CharacterServiceProvider extends ServiceProvider {
         {
             return new InstallCommand;
         });
+        $this->app['simulation'] = $this->app->share(function($app)
+        {
+            return new SimulationCommand;
+        });
+    }
+
+    private function setupResources($dir)
+    {
+		// Include routes
+		include $dir . 'routes.php';
+
+		// Set directory
+		$this->loadViewsFrom($dir . 'views', 'character');
+
+		// Set config
+		$config = $dir . 'config/multiplayer.php';
+        $this->mergeConfigFrom($config, 'character::multiplayer');
     }
 
 	/**
