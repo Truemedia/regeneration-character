@@ -3,6 +3,7 @@ namespace App\Artisan;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Regeneration\Character\Models\Character;
 
 class SimulationCommand extends Command {
 
@@ -40,13 +41,19 @@ class SimulationCommand extends Command {
 		// Create game instance
 		$constraints = \Config::get('character::multiplayer.instance.constraints');
 
-		list($min_players, $max_players) = array_values($constraints['players']);
-		$time_limit = $constraints['map']['lifetime']; 
+		list($min_players, $max_players) = array($constraints['players']['min_players'], $constraints['players']['max_players']);
+		$time_limit = $constraints['map']['lifetime'];
+
+		// TODO: Use this as enum for first migration
+		$default_locale = \Config::get('app.locale');
+		$locales = \Config::get('app.locales', array($default_locale));
 
 		$this->comment("Game initializing of $min_players VS $max_players");
 		// TODO: Implement timer
 		// $this->timer->start();
 		// $this->timer->timeElapsed();
+
+		dd(Character::all());
 
 		foreach(range($min_players, $max_players) as $player_id)
 		{

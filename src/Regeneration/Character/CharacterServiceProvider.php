@@ -21,7 +21,6 @@ class CharacterServiceProvider extends ServiceProvider {
 	{
 		$dir = __DIR__ . '/../../';
 
-		// Setup resources
 		$this->setupResources($dir);
 	}
 
@@ -56,6 +55,9 @@ class CharacterServiceProvider extends ServiceProvider {
         });
     }
 
+    /**
+     * Setup routing, configs, and views
+     */
     private function setupResources($dir)
     {
 		// Include routes
@@ -67,6 +69,12 @@ class CharacterServiceProvider extends ServiceProvider {
 		// Set config
 		$config = $dir . 'config/multiplayer.php';
         $this->mergeConfigFrom($config, 'character::multiplayer');
+        $config = $dir . 'config/app.php';
+        $this->mergeConfigFrom($config, 'app');
+
+        $this->publishes([
+		    realpath($dir . 'migrations') => $this->app->databasePath() . '/migrations',
+		]);
     }
 
 	/**

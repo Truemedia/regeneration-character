@@ -16,7 +16,8 @@
         "classmap": [
             "src/controllers",
             "src/commands",
-            "src/migrations"
+            "src/migrations",
+            "src/models"
         ],
         "psr-0": {
             "Regeneration\\Character\\": "src/"
