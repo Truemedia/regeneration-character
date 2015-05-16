@@ -53,24 +53,20 @@ class SimulationCommand extends Command {
 		// $this->timer->start();
 		// $this->timer->timeElapsed();
 
-		dd(Character::all());
-
-		foreach(range($min_players, $max_players) as $player_id)
+		foreach(Character::all() as $character)
 		{
+			$player_id = $character->power_ranking;
+
 			// TODO: Implement inventory
 			// $inventory = new Inventory($player_id);
 			// $inventory_list = $inventory->toList();
-			$inventory_list = "food, water, clothes, weapon";
+			$inventory_list = implode(json_decode($character->inventory), ', ');
 
 			// TODO: Implement coords
 			// $coords = Map::get_player_coords($player_id);
-			$map = array(
-				'x' => 100,
-				'y' => 10
-			);
 			$coords = array(
-				'x' => ($player_id),
-				'y' => ($player_id)
+				'x' => $character->latitude,
+				'y' => $character->longitude
 			);
 
 			$this->info("Spawning player $player_id with: ($inventory_list) at: ($coords[x], $coords[y])");
