@@ -44,16 +44,17 @@ class SimulationCommand extends Command {
 		list($min_players, $max_players) = array($constraints['players']['min_players'], $constraints['players']['max_players']);
 		$time_limit = $constraints['map']['lifetime'];
 
-		// TODO: Use this as enum for first migration
-		$default_locale = \Config::get('app.locale');
-		$locales = \Config::get('app.locales', array($default_locale));
-
 		$this->comment("Game initializing of $min_players VS $max_players");
 		// TODO: Implement timer
 		// $this->timer->start();
 		// $this->timer->timeElapsed();
 
-		foreach(Character::all() as $character)
+		// Get characters, with relevant locale
+		$characters = Character::with([
+			'trans' => function($query) { $query->locale()->get(); }
+		])->get();
+
+		foreach ($characters as $character)
 		{
 			$player_id = $character->power_ranking;
 
