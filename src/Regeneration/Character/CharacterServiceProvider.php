@@ -67,13 +67,14 @@ class CharacterServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom($dir . 'views', 'character');
 
 		// Set config
-		$config = $dir . 'config/multiplayer.php';
+		$config = $dir . 'config' . DIRECTORY_SEPARATOR . 'multiplayer.php';
         $this->mergeConfigFrom($config, 'character::multiplayer');
-        $config = $dir . 'config/app.php';
+        $config = $dir . 'config' . DIRECTORY_SEPARATOR . 'app.php';
         $this->mergeConfigFrom($config, 'app');
 
         $this->publishes([
-		    realpath($dir . 'migrations') => $this->app->databasePath() . '/migrations',
+		    realpath($dir . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'migrations') => $this->app->databasePath() . DIRECTORY_SEPARATOR . 'migrations',
+		    realpath($dir . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'seeds') => $this->app->databasePath() . DIRECTORY_SEPARATOR . 'seeds',
 		]);
     }
 
