@@ -16,7 +16,6 @@
         "classmap": [
             "src/controllers",
             "src/commands",
-            "src/migrations",
             "src/models"
         ],
         "psr-0": {
