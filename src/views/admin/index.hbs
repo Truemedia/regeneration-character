@@ -1,61 +1,83 @@
-<h3>Listing</h3>
-<table>
-	<tr class="record--headings">
-		<th>Character ID</th>
-		<th>Power ranking</th>
-		<th>Latitude</th>
-		<th>Longitude</th>
-		<th>Inventory</th>
-		<th>Deleted at</th>
-		<th>Created at</th>
-		<th>Updated at</th>
-		<th>First name</th>
-		<th>Last name</th>
-		<th>Nickname</th>
-		<th>Overview</th>
-	</tr>
-	{{#each characters}}
-	<tr class="record {{#if deleted_at}}record--deleted{{/if}}">
-		<td>
-			{{id}}
-		</td>
-        <td>
-        	{{power_ranking}}
-        </td>
-        <td>
-        	{{latitude}}
-        </td>
-        <td>
-        	{{longitude}}
-        </td>
-        <td>
-        	{{inventory}}
-        </td>
-        <td>
-        	{{#if deleted_at}}
-        		{{deleted_at}}
-        	{{else}}
-        		Never deleted
-        	{{/if}}
-        </td>
-        <td>
-        	{{created_at}}
-        </td>
-        <td>
-        	{{updated_at}}
-        </td>
-		<td>
-			{{trans.firstname}}
-		</td>
-		<td>
-			{{trans.lastname}}
-		</td>
-		<td>
-			{{trans.nickname}}
-		</td>
-		<td>
-			{{trans.overview}}
-		</td>
-	</tr>
-	{{/each}}
+<h3>Character Listing</h3>
+<table class="table tabel-striped table-bordered table-hover">
+	<thead>
+		<tr class="record--headings">
+			<th>#</th>
+			<th>
+				<i class="fa fa-bolt"></i> Power ranking
+			</th>
+			<th>
+				<i class="fa fa-location-arrow"></i> Location (lat/long)
+			</th>
+			<th>
+				<i class="fa fa-suitcase"></i> Inventory
+			</th>
+			<th>
+				<i class="fa fa-pencil-square-o"></i> Authoring history
+			</th>
+			<th>
+				<i class="fa fa-user"></i> Name
+			</th>
+			<th>
+				<i class="fa fa-book"></i> Overview
+			</th>
+			<th>
+				<i class="fa fa-share"></i> Actions
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each characters}}
+		<tr class="{{#if deleted_at}} danger {{else}} warning {{/if}}">
+			<td>
+				{{id}}
+			</td>
+	        <td class="text-center">
+	        	<span class="badge">{{power_ranking}}</span>
+	        </td>
+	        <td>
+	        	({{latitude}}, {{longitude}})
+	        </td>
+	        <td>
+	        	{{inventory}}
+	        </td>
+	        <td>
+	        	<dl>
+	        		<dt>Updated at</dt><dd>{{updated_at}}</dd>
+	        		<dt>Created at</dt><dd>{{created_at}}</dd>
+	        	</dl>
+	        </td>
+			<td>
+				<span>{{trans.firstname}} {{trans.lastname}}</span> <span>({{trans.nickname}})</span>
+			</td>
+			<td>
+				{{trans.overview}}
+			</td>
+			<td class="text-center">
+				<div class="btn-group">
+					<button type="button" class="btn btn-warning"><i class="fa fa-hand-o-right"></i> Action</button>
+					<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			    		<span class="caret"></span>
+			    		<span class="sr-only">Toggle Dropdown</span>
+			  		</button>
+			  		<ul class="dropdown-menu" role="menu">
+					    <li>
+					    	<a href="#"><i class="fa fa-pencil"></i> Modify</a>
+					    </li>
+					    <li>
+					    	<a href="#"><i class="fa fa-files-o"></i> Copy</a>
+					    </li>
+					    <li>
+					    	<a href="#"><i class="fa fa-archive"></i> Archive</a>
+					    </li>
+					    <li class="divider"></li>
+					    <li>
+					    	<a href="#"><i class="fa fa-trash-o"></i> Delete</a>
+					    </li>
+			  		</ul>
+				</div>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
 </table>
