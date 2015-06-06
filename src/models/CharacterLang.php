@@ -12,7 +12,7 @@ class CharacterLang extends Model
     }
     public function scopeLocale($query)
     {
-    	$locale = \Config::get('app.locale');
+    	$locale = \Session::get('locale');
     	return $query->where( compact('locale') );
     }
 }

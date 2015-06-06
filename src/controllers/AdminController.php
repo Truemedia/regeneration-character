@@ -1,5 +1,6 @@
 <?php
 namespace Regeneration\Character\Controllers;
+use Regeneration\Character\Models\Character;
 
 	class AdminController extends BaseController
 	{
@@ -25,9 +26,15 @@ namespace Regeneration\Character\Controllers;
 		 */
 		public function index()
 		{
-			// Consolidate data
-			$data = array('hello' => 'world');
-			$this->setContent($data);
+			// TODO: get locale from user preference
+			$locale = 'en_GB';
+			\Session::set('locale', $locale);
+
+			$characters = Character::with([
+				'trans' => function($query) { $query->locale()->get(); }
+			])->get();
+
+			$this->setContent( compact('characters') );
 		}
 
 

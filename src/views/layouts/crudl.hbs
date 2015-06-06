@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 	<head>
 		<title>Character Package</title>
+		<style>
+			table, tr, th, td {
+				border: 1px solid black;
+			}
+			.record {
+				background-color: goldenrod;
+			}
+			.record--headings {
+				background-color: cornflowerblue;
+			}
+			.record--deleted {
+				background-color: grey;
+			}
+		</style>
 	</head>
-	<body id="layout">{{ content }}</body>
+	<body id="layout">{{{ content }}}</body>
 </html>

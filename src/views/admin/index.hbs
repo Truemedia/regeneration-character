@@ -1,1 +1,61 @@
-Listing
+<h3>Listing</h3>
+<table>
+	<tr class="record--headings">
+		<th>Character ID</th>
+		<th>Power ranking</th>
+		<th>Latitude</th>
+		<th>Longitude</th>
+		<th>Inventory</th>
+		<th>Deleted at</th>
+		<th>Created at</th>
+		<th>Updated at</th>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Nickname</th>
+		<th>Overview</th>
+	</tr>
+	{{#each characters}}
+	<tr class="record {{#if deleted_at}}record--deleted{{/if}}">
+		<td>
+			{{id}}
+		</td>
+        <td>
+        	{{power_ranking}}
+        </td>
+        <td>
+        	{{latitude}}
+        </td>
+        <td>
+        	{{longitude}}
+        </td>
+        <td>
+        	{{inventory}}
+        </td>
+        <td>
+        	{{#if deleted_at}}
+        		{{deleted_at}}
+        	{{else}}
+        		Never deleted
+        	{{/if}}
+        </td>
+        <td>
+        	{{created_at}}
+        </td>
+        <td>
+        	{{updated_at}}
+        </td>
+		<td>
+			{{trans.firstname}}
+		</td>
+		<td>
+			{{trans.lastname}}
+		</td>
+		<td>
+			{{trans.nickname}}
+		</td>
+		<td>
+			{{trans.overview}}
+		</td>
+	</tr>
+	{{/each}}
+</table>
