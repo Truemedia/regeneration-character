@@ -26,6 +26,26 @@
 			</th>
 		</tr>
 	</thead>
+	<tfoot>
+		<tr>
+			<td colspan="8">
+				<div class="pull-left">
+					<a class="btn btn-success" href="/character/manage/create">
+						<i class="fa fa-plus"></i> Create new character
+					</a>
+					<a class="btn btn-info" href="/character/manage/import">
+						<i class="fa fa-upload"></i> Import from CSV
+					</a>
+				</div>
+				<div class="pull-right">
+					<label>Choose language</label>
+					<select>
+						<option value="en_GB">English (United Kingdom)</select>
+					</select>
+				</div>
+			</td>
+		</tr>
+	</tfoot>
 	<tbody>
 		{{#each characters}}
 		<tr class="{{#if deleted_at}} danger {{else}} warning {{/if}}">
@@ -62,7 +82,7 @@
 			  		</button>
 			  		<ul class="dropdown-menu" role="menu">
 					    <li>
-					    	<a href="#"><i class="fa fa-pencil"></i> Modify</a>
+					    	<a href="/character/manage/{{id}}/edit"><i class="fa fa-pencil"></i> Modify</a>
 					    </li>
 					    <li>
 					    	<a href="#"><i class="fa fa-files-o"></i> Copy</a>

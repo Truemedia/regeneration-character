@@ -21,6 +21,13 @@
 		</style>-->
 	</head>
 	<body id="layout">
-		<div class="container">{{{ content }}}</div>
+		<ol class="breadcrumb">
+			{{#each breadcrumbs}}
+			<li><a href="{{ url }}">{{ text }}</a></li>
+			{{/each}}
+		</ol>
+		<div class="container">
+			{{{ content }}}
+		</div>
 	</body>
 </html>
