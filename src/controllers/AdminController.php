@@ -10,6 +10,38 @@ use Regeneration\Character\Models\Character;
 	    protected $layout = 'character::layouts.crudl';
 
 	    /**
+		 * Setup tools that can be used for defining aspects of the layout
+		 *
+		 * @return void
+		 */
+		protected function setupLayoutTools()
+		{
+			$this->setupBreadcrumbs();
+		}
+
+	    /**
+	     * Setup breadcrumbs
+	     */
+	    protected function setupBreadcrumbs()
+	   	{
+	   		$breadcrumbs = [];
+
+			$segments = \Request::segments();
+			for ($i = 1; $i <= count($segments); $i++)
+			{
+				$temp = $segments;
+
+				$url = '/' . implode('/', array_slice($temp, 0, $i));
+				$text = ucfirst($segments[$i-1]);
+
+				$breadcrumb = compact('url', 'text');
+				$breadcrumbs[] = $breadcrumb;
+			}
+
+			$this->layout->breadcrumbs = $breadcrumbs;
+	   	}
+
+	    /**
 		 * Installation page
 		 *
 		 * @return Response

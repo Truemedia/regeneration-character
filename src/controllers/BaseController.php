@@ -22,28 +22,6 @@ class BaseController extends Controller {
         return $response;
     }
 
-    /**
-     * Setup breadcrumbs
-     */
-    protected function setupBreadcrumbs()
-   	{
-   		$breadcrumbs = [];
-
-		$segments = \Request::segments();
-		for ($i = 1; $i <= count($segments); $i++)
-		{
-			$temp = $segments;
-
-			$url = '/' . implode('/', array_slice($temp, 0, $i));
-			$text = ucfirst($segments[$i-1]);
-
-			$breadcrumb = compact('url', 'text');
-			$breadcrumbs[] = $breadcrumb;
-		}
-
-		$this->layout->breadcrumbs = $breadcrumbs;
-   	}
-
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -55,6 +33,16 @@ class BaseController extends Controller {
 		{
 			$this->layout = view($this->layout);
 		}
+	}
+
+	/**
+	 * Setup tools that can be used for defining aspects of the layout
+	 *
+	 * @return void
+	 */
+	protected function setupLayoutTools()
+	{
+		// Extend this function in the relevant controller
 	}
 
 	/**
@@ -110,7 +98,7 @@ class BaseController extends Controller {
 					$view = $this->view;
 				}
 
-				$this->setupBreadcrumbs();
+				$this->setupLayoutTools();
 				$this->layout->content = view($view, $data); // HTML
 			break;
 		}
