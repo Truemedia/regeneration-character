@@ -1,0 +1,78 @@
+<form method="POST" action="{{ form.url }}" accept-charset="UTF-8">
+	<div class="form-group">
+		<label for="power_ranking">
+			<i class="fa fa-bolt"></i> Power ranking
+		</label>
+		<input type="text"
+			   name="power_ranking"
+			   value="{{#if power_ranking}}{{power_ranking}}{{/if}}"
+			   placeholder="Pick a number between 1 and 1000" />
+	</div>
+	<div class="form-group">
+		<label for="latitude">
+			<i class="fa fa-location-arrow"></i> Latitude
+		</label>
+		<input type="text"
+			   name="latitude"
+			   value="{{#if latitude}}{{latitude}}{{/if}}"
+			   placeholder="Pick a latitude" />
+	</div>
+	<div class="form-group">
+		<label for="longitude">
+			<i class="fa fa-location-arrow"></i> Longitude
+		</label>
+		<input type="text"
+			   name="longitude"
+			   value="{{#if longitude}}{{longitude}}{{/if}}"
+			   placeholder="Pick a longitude" />
+	</div>
+	<div class="form-group">
+		<label for="inventory">
+			<i class="fa fa-suitcase"></i> Inventory
+		</label>
+		<input type="text"
+			   name="inventory"
+			   value="{{#if inventory}}{{inventory}}{{/if}}"
+			   placeholder="Pick some items for this player" />
+	</div>
+	<div class="form-group">
+		<label for="first_name">
+			<i class="fa fa-user"></i> First name
+		</label>
+		<input type="text"
+			   name="first_name"
+			   value="{{#if first_name}}{{first_name}}{{/if}}"
+			   placeholder="Enter the characters first name" />
+	</div>
+	<div class="form-group">
+		<label for="last_name">
+			<i class="fa fa-user"></i> Last name
+		</label>
+		<input type="text"
+			   name="last_name"
+			   value="{{#if last_name}}{{last_name}}{{/if}}"
+			   placeholder="Enter the characters last name" />
+	</div>
+	<div class="form-group">
+		<label for="nick_name">
+			<i class="fa fa-user"></i> Nickname
+		</label>
+		<input type="text"
+			   name="nick_name"
+			   value="{{#if nick_name}}{{nick_name}}{{/if}}"
+			   placeholder="Enter the characters nickname" />
+	</div>
+	<div class="form-group">
+		<label for="overview">
+			<i class="fa fa-book"></i> Overview
+		</label>
+		<input type="text"
+			   name="overview"
+			   value="{{#if overview}}{{overview}}{{/if}}"
+			   placeholder="Enter an overview that describes this character accurately" />
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+	{{{form_token }}}
+</form>

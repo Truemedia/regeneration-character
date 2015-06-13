@@ -98,8 +98,8 @@ class BaseController extends Controller {
 					$view = $this->view;
 				}
 
-				$this->setupLayoutTools();
 				$this->layout->content = view($view, $data); // HTML
+				$this->setupLayoutTools();
 			break;
 		}
 	}

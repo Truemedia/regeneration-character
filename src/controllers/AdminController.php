@@ -1,6 +1,7 @@
 <?php
 namespace Regeneration\Character\Controllers;
 use Regeneration\Character\Models\Character;
+use Regeneration\Character\Models\CharacterLang;
 
 	class AdminController extends BaseController
 	{
@@ -77,8 +78,14 @@ use Regeneration\Character\Models\Character;
 		 */
 		public function create()
 		{
-			// Consolidate data
-			$data = array('hello' => 'world');
+			$segments = \Request::segments();
+			array_pop($segments);
+			$form_url = '/' . implode('/', $segments);
+
+			$form = [
+				'url' => $form_url
+			];
+			$data = compact('form');
 			$this->setContent($data);
 		}
 
@@ -90,8 +97,18 @@ use Regeneration\Character\Models\Character;
 		 */
 		public function store()
 		{
-			// Consolidate data
-			$data = array('hello' => 'world');
+			$character = new Character();
+			$character_lang = new CharacterLang();
+			$input = \Request::only( array_merge(
+				$character->getFillable(),
+				$character_lang->getFillable()
+			));
+
+			$saved = $character
+				->fill($input)
+				->push();
+
+			$data = compact('saved');
 			$this->setContent($data);
 		}
 
@@ -118,8 +135,8 @@ use Regeneration\Character\Models\Character;
 		 */
 		public function edit($id)
 		{
-			// Consolidate data
-			$data = array('hello' => 'world');
+			$form_url = \Request::url();
+			$data = compact('form_url');
 			$this->setContent($data);
 		}
 
