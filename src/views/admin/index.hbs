@@ -48,18 +48,43 @@
 	</tfoot>
 	<tbody>
 		{{#each characters}}
-		<tr class="{{#if deleted_at}} danger {{else}} warning {{/if}}">
+		<tr class="{{#if deleted_at}}danger{{/unless}}">
 			<td>
 				{{id}}
 			</td>
-	        <td class="text-center">
-	        	<span class="badge">{{power_ranking}}</span>
+	        <td class="text-center {{#unless power_ranking}}danger{{/unless}}">
+	        	{{#if power_ranking}}
+	        		<span class="badge">{{power_ranking}}</span>
+	        	{{else}}
+	        		<p>
+	        			<del>No power ranking declared for this character, this could cause problems.</del><br />
+	        			<a href="#">
+	        				<ins>Choosing a power ranking will fix this potential issue</ins>
+	        			</a>
+	        		</p>
+	        	{{/if}}
 	        </td>
-	        <td>
-	        	({{latitude}}, {{longitude}})
+	        <td class="{{#unless latitude longitude}}danger{{/unless}}">
+	        	{{#if latitude longitude }}
+	        		<span>({{latitude}}, {{longitude}})</span>
+	        	{{else}}
+	        		<p>
+	        			<del>This character has no coordinates and will not be able to spawn</del><br />
+	        			<a href="#" class="warning">
+	        				<ins>Why not pick some coordinates for this player to spawn at?</ins>
+	        			</a>
+	        		</p>
+	        	{{/if}}
 	        </td>
-	        <td>
-	        	{{inventory}}
+	        <td class="{{#unless inventory}}warning{{/unless}}">
+	        	{{#if inventory}}
+	        		{{inventory}}
+	        	{{else}}
+	        		<del>This character has nothing in their inventory!</del><br />
+					<a href="#">
+						<ins>Are you sure they should be equipped with nothing?</ins>
+					</a>
+	        	{{/if}}
 	        </td>
 	        <td>
 	        	<dl>
@@ -67,11 +92,38 @@
 	        		<dt>Created at</dt><dd>{{created_at}}</dd>
 	        	</dl>
 	        </td>
-			<td>
-				<span>{{trans.firstname}} {{trans.lastname}}</span> <span>({{trans.nickname}})</span>
+			<td class="{{#unless trans.firstname trans.lastname trans.nickname}}warning{{/unless}}">
+				<p>
+					{{#if trans.firstname trans.lastname}}
+						<span>{{trans.firstname}} {{trans.lastname}}</span>
+					{{else}}
+						<del>No information has been set for real name</del><br />
+						<a href="#">
+							<ins>Why not add this information?</ins>
+						</a>
+					{{/if}}
+					<br />
+					{{#if trans.nickname}}
+						<strong>({{trans.nickname}})</strong>
+					{{else}}
+						<del>No nickname has been set</del><br />
+						<a href="#">
+							<ins>Why not add this information?</ins>
+						</a>
+					{{/if}}
+				</p>
 			</td>
-			<td>
-				{{trans.overview}}
+			<td class="{{#unless trans.overview}}warning{{/unless}}">
+				<p>
+					{{#if trans.overview}}
+					<span>{{trans.overview}}</span>
+					{{else}}
+					<del>No information available</del><br />
+					<a href="#">
+						<ins>Why not add this information?</ins>
+					</a>
+					{{/if}}
+				</p>
 			</td>
 			<td class="text-center">
 				<div class="btn-group">
