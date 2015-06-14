@@ -64,10 +64,12 @@ use Regeneration\Character\Models\CharacterLang;
 			\Session::set('locale', $locale);
 
 			$characters = Character::with([
-				'trans' => function($query) { $query->locale()->get(); }
+				'trans' => function($query) { $query->locale(); }
 			])->get();
 
-			$this->setContent( compact('characters') );
+			$content = compact('characters');
+
+			$this->setContent($content);
 		}
 
 
@@ -85,8 +87,10 @@ use Regeneration\Character\Models\CharacterLang;
 			$form = [
 				'url' => $form_url
 			];
-			$data = compact('form');
-			$this->setContent($data);
+
+			$content = compact('form');
+
+			$this->setContent($content);
 		}
 
 
@@ -98,18 +102,25 @@ use Regeneration\Character\Models\CharacterLang;
 		public function store()
 		{
 			$character = new Character();
-			$character_lang = new CharacterLang();
-			$input = \Request::only( array_merge(
-				$character->getFillable(),
-				$character_lang->getFillable()
-			));
+			$trans = new CharacterLang();
 
-			$saved = $character
-				->fill($input)
-				->push();
+			$input = [
+				'character' => \Request::only( $character->getFillable() ),
+				'character_lang' => \Request::only( $trans->getFillable() )
+			];
 
-			$data = compact('saved');
-			$this->setContent($data);
+			$character
+				->fill($input['character'])
+				->save();
+
+			$trans
+				->fill($input['character_lang']);
+
+			$saved = $character->trans()->save($trans);
+
+			$content = compact('saved');
+
+			$this->setContent($content);
 		}
 
 
@@ -135,9 +146,14 @@ use Regeneration\Character\Models\CharacterLang;
 		 */
 		public function edit($id)
 		{
+			$character = Character::with([
+				'trans' => function($query) { $query->locale()->get(); }
+			])->findOrFail($id);
 			$form_url = \Request::url();
-			$data = compact('form_url');
-			$this->setContent($data);
+
+			$content = compact('character', 'form_url');
+
+			$this->setContent($content);
 		}
 
 
@@ -150,8 +166,8 @@ use Regeneration\Character\Models\CharacterLang;
 		public function update($id)
 		{
 			// Consolidate data
-			$data = array('hello' => 'world');
-			$this->setContent($data);
+			$content = array('hello' => 'world');
+			$this->setContent($content);
 		}
 
 

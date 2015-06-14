@@ -18,6 +18,7 @@ class CharacterLang extends Model
      * @var array
      */
     protected $fillable = ['firstname', 'lastname', 'nickname', 'overview'];
+    protected $guarded = ['id', 'character_id'];
 
     /**
      * The attributes that should be casted to native types.
@@ -31,9 +32,11 @@ class CharacterLang extends Model
         'overview' => 'string'
     ];
 
+    protected $softDelete = true;
+
 	public function character()
     {
-        return $this->belongsTo('Regeneration\Character\Models\Character');
+        return $this->belongsTo('Regeneration\Character\Models\Character', 'character_id');
     }
 
     public function scopeLocale($query)

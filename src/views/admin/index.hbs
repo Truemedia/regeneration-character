@@ -58,7 +58,7 @@
 	        	{{else}}
 	        		<p>
 	        			<del>No power ranking declared for this character, this could cause problems.</del><br />
-	        			<a href="#">
+	        			<a href="/character/manage/{{id}}/edit#power_ranking">
 	        				<ins>Choosing a power ranking will fix this potential issue</ins>
 	        			</a>
 	        		</p>
@@ -70,7 +70,7 @@
 	        	{{else}}
 	        		<p>
 	        			<del>This character has no coordinates and will not be able to spawn</del><br />
-	        			<a href="#" class="warning">
+	        			<a href="/character/manage/{{id}}/edit#latitude" class="warning">
 	        				<ins>Why not pick some coordinates for this player to spawn at?</ins>
 	        			</a>
 	        		</p>
@@ -81,7 +81,7 @@
 	        		{{inventory}}
 	        	{{else}}
 	        		<del>This character has nothing in their inventory!</del><br />
-					<a href="#">
+					<a href="/character/manage/{{id}}/edit#inventory">
 						<ins>Are you sure they should be equipped with nothing?</ins>
 					</a>
 	        	{{/if}}
@@ -92,22 +92,22 @@
 	        		<dt>Created at</dt><dd>{{created_at}}</dd>
 	        	</dl>
 	        </td>
-			<td class="{{#unless trans.firstname trans.lastname trans.nickname}}warning{{/unless}}">
+			<td class="{{#unless trans.[0].firstname trans.[0].lastname trans.[0].nickname}}warning{{/unless}}">
 				<p>
-					{{#if trans.firstname trans.lastname}}
-						<span>{{trans.firstname}} {{trans.lastname}}</span>
+					{{#if trans.[0].firstname trans.[0].lastname}}
+						<span>{{trans.[0].firstname}} {{trans.[0].lastname}}</span>
 					{{else}}
 						<del>No information has been set for real name</del><br />
-						<a href="#">
+						<a href="/character/manage/{{id}}/edit#firstname">
 							<ins>Why not add this information?</ins>
 						</a>
 					{{/if}}
 					<br />
-					{{#if trans.nickname}}
-						<strong>({{trans.nickname}})</strong>
+					{{#if trans.[0].nickname}}
+						<strong>({{trans.[0].nickname}})</strong>
 					{{else}}
 						<del>No nickname has been set</del><br />
-						<a href="#">
+						<a href="/character/manage/{{id}}/edit#nickname">
 							<ins>Why not add this information?</ins>
 						</a>
 					{{/if}}
@@ -119,7 +119,7 @@
 					<span>{{trans.overview}}</span>
 					{{else}}
 					<del>No information available</del><br />
-					<a href="#">
+					<a href="/character/manage/{{id}}/edit#overview">
 						<ins>Why not add this information?</ins>
 					</a>
 					{{/if}}

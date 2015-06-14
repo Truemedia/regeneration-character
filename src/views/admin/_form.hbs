@@ -1,75 +1,90 @@
 <form method="POST" action="{{ form.url }}" accept-charset="UTF-8">
+	{{! Power ranking }}
 	<div class="form-group">
 		<label for="power_ranking">
 			<i class="fa fa-bolt"></i> Power ranking
 		</label>
-		<input type="text"
+		<input id="power_ranking"
 			   name="power_ranking"
-			   value="{{#if power_ranking}}{{power_ranking}}{{/if}}"
-			   placeholder="Pick a number between 1 and 1000" />
+			   placeholder="Pick a number between 1 and 1000"
+			   type="text"
+			   value="{{#if character.power_ranking}}{{character.power_ranking}}{{/if}}" />
 	</div>
+	{{! Latitude/Longitude }}
 	<div class="form-group">
 		<label for="latitude">
 			<i class="fa fa-location-arrow"></i> Latitude
 		</label>
-		<input type="text"
+		<input id="latitude"
 			   name="latitude"
-			   value="{{#if latitude}}{{latitude}}{{/if}}"
-			   placeholder="Pick a latitude" />
+			   placeholder="Pick a latitude"
+			   type="text"
+			   value="{{#if character.latitude}}{{character.latitude}}{{/if}}" />
 	</div>
 	<div class="form-group">
 		<label for="longitude">
 			<i class="fa fa-location-arrow"></i> Longitude
 		</label>
-		<input type="text"
+		<input id="longitude"
 			   name="longitude"
-			   value="{{#if longitude}}{{longitude}}{{/if}}"
-			   placeholder="Pick a longitude" />
+			   placeholder="Pick a longitude"
+			   type="text"
+			   value="{{#if character.longitude}}{{character.longitude}}{{/if}}" />
 	</div>
+	{{! Inventory }}
 	<div class="form-group">
 		<label for="inventory">
 			<i class="fa fa-suitcase"></i> Inventory
 		</label>
-		<input type="text"
+		<input id="inventory"
 			   name="inventory"
-			   value="{{#if inventory}}{{inventory}}{{/if}}"
-			   placeholder="Pick some items for this player" />
+			   placeholder="Pick some items for this player"
+			   type="text"
+			   value="{{#if character.inventory}}{{character.inventory}}{{/if}}" />
 	</div>
+	{{! First name }}
 	<div class="form-group">
-		<label for="first_name">
+		<label for="firstname">
 			<i class="fa fa-user"></i> First name
 		</label>
-		<input type="text"
-			   name="first_name"
-			   value="{{#if first_name}}{{first_name}}{{/if}}"
-			   placeholder="Enter the characters first name" />
+		<input id="firstname"
+			   name="firstname"
+			   placeholder="Enter the characters first name"
+			   type="text"
+			   value="{{#if character.trans.[0].firstname}}{{character.trans.[0].firstname}}{{/if}}" />
 	</div>
+	{{! Last name }}
 	<div class="form-group">
-		<label for="last_name">
+		<label for="lastname">
 			<i class="fa fa-user"></i> Last name
 		</label>
-		<input type="text"
-			   name="last_name"
-			   value="{{#if last_name}}{{last_name}}{{/if}}"
-			   placeholder="Enter the characters last name" />
+		<input id="lastname"
+			   name="lastname"
+			   placeholder="Enter the characters last name"
+			   type="text"
+			   value="{{#if character.trans.[0].lastname}}{{character.trans.[0].lastname}}{{/if}}" />
 	</div>
+	{{! Nickname }}
 	<div class="form-group">
-		<label for="nick_name">
+		<label for="nickname">
 			<i class="fa fa-user"></i> Nickname
 		</label>
-		<input type="text"
-			   name="nick_name"
-			   value="{{#if nick_name}}{{nick_name}}{{/if}}"
-			   placeholder="Enter the characters nickname" />
+		<input id="nickname"
+			   name="nickname"
+			   placeholder="Enter the characters nickname"
+			   type="text"
+			   value="{{#if character.trans.[0].nickname}}{{character.trans.[0].nickname}}{{/if}}" />
 	</div>
+	{{! Overview }}
 	<div class="form-group">
 		<label for="overview">
 			<i class="fa fa-book"></i> Overview
 		</label>
-		<input type="text"
+		<input id="overview"
 			   name="overview"
-			   value="{{#if overview}}{{overview}}{{/if}}"
-			   placeholder="Enter an overview that describes this character accurately" />
+			   placeholder="Enter an overview that describes this character accurately"
+			   type="text"
+			   value="{{#if character.trans.overview}}{{character.trans.overview}}{{/if}}" />
 	</div>
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Submit</button>

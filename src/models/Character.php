@@ -18,6 +18,7 @@ class Character extends Model
      * @var array
      */
 	public $fillable = ['power_ranking', 'latitude', 'longitude', 'inventory'];
+	protected $guarded = ['id'];
 
 	/**
 	 * The attributes that should be casted to native types.
@@ -31,8 +32,10 @@ class Character extends Model
 		'inventory' => 'string'
 	];
 
+	protected $softDelete = true;
+
 	public function trans()
 	{
-		return $this->hasOne('Regeneration\Character\Models\CharacterLang');
+		return $this->hasMany('Regeneration\Character\Models\CharacterLang');
 	}
 }
