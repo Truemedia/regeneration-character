@@ -72,16 +72,21 @@ class CharacterServiceProvider extends ServiceProvider {
         $config = $dir . 'config' . DIRECTORY_SEPARATOR . 'app.php';
         $this->mergeConfigFrom($config, 'app');
 
-        // Publish public folder
-        $this->publishes([
-		   	realpath($dir . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'public') => public_path('packages/character'),
-		], 'public');
-
-        // Publish database folder
+        // Publish files/folders
         $this->publishes([
 		    realpath($dir . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'migrations') => database_path('migrations'),
 		    realpath($dir . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'seeds') => database_path('seeds'),
 		], 'database');
+        $this->publishes([
+		   	realpath($dir . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'public') => public_path('packages/character'),
+		], 'public');
+		$this->publishes([
+		   	realpath(
+		   		$dir . DIRECTORY_SEPARATOR .
+		   		'resources' . DIRECTORY_SEPARATOR .
+		   		'assets' . DIRECTORY_SEPARATOR .
+		   		'sass') => base_path('resources/assets/sass/packages/character'),
+		], 'resources');
     }
 
 	/**
