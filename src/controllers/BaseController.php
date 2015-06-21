@@ -9,14 +9,25 @@ class BaseController extends Controller {
 	 */
 	public function callAction($method, $parameters)
     {
-        $this->setupLayout();
-        $this->setupViewPath($method, __NAMESPACE__, get_class($this));
+    	if (\Request::format() == 'html')
+    	{
+	        $this->setupLayout();
+	        $this->setupViewPath($method, __NAMESPACE__, get_class($this));
+	    }
 
         $response = call_user_func_array(array($this, $method), $parameters);
 
         if (is_null($response) && !is_null($this->layout))
         {
-            $response = $this->layout;
+        	switch(\Request::format())
+        	{
+        		case 'html':
+        			$response = $this->layout;
+        		break;
+        		case 'json':
+        			$response = $this->json;
+        		break;
+        	}
         }
 
         return $response;
@@ -84,11 +95,7 @@ class BaseController extends Controller {
 		// Handle request
 		switch (\Request::format())
 		{
-			case 'json':
-				return Response::json($data); // API
-			break;
-
-			default:
+			case 'html':
 				if (!empty($settings) && array_key_exists('view', $settings))
 				{
 					$view = $settings['view'];
@@ -100,6 +107,10 @@ class BaseController extends Controller {
 
 				$this->layout->content = view($view, $data); // HTML
 				$this->setupLayoutTools();
+			break;
+
+			case 'json':
+				$this->json = $data; // API
 			break;
 		}
 	}

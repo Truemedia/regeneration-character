@@ -4,6 +4,60 @@
 		<link rel="stylesheet" href="/css/app.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+		<script type="text/javascript">
+			function tpl()
+			{
+				return 'template test';
+			}
+
+			$(document).ready( function()
+			{
+				var collection = Backbone.Collection.extend({
+			        url: '/character/manage',
+			        parse: function(data) {
+			        	console.log(data);
+			        	return data;
+			        }
+			    });
+
+			    var view = Backbone.View.extend({
+			        initialize: function()
+			        {
+			            this.collection = new collection({model: Backbone.Model.extend()});
+			            this.render();
+			        },
+			        render: function()
+			        {
+			            // Load package stored data
+			        	var self = this;
+			            this.collection.fetch({ contentType: "application/json" }).done( function() {
+			            		
+			            	// Compose data for view
+			            	var data = {
+			            		items: self.collection.toJSON(),
+			            	};
+			    				
+			            	// Render content
+			            	self.$el.html( tpl(data) );
+			            	self.afterRender();
+			            });
+			        },
+			        afterRender: function()
+			        {
+
+			        }
+			    });
+
+			    $('a').on('click', function(e)
+			    {
+			    	e.preventDefault();
+			    	new view({ el: $('.container').get(0) });
+			    });
+			});
+		</script>
 	</head>
 	<body id="layout">
 		<ol class="breadcrumb">
