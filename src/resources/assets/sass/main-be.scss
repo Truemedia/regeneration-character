@@ -1,6 +1,8 @@
-body {
-	background-color: #ff00ff !important;
-}
+// Bootstrap
+@import 'bower_components/fontawesome/scss/font-awesome';
+@import 'bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
+@import 'bower_components/bootswatch-sass/yeti/_variables';
+@import 'bower_components/bootswatch-sass/yeti/_bootswatch';
 
 /*
 table, tr, th, td {

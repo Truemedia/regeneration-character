@@ -1,0 +1,31 @@
+{
+  "name": "public",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Truemedia/regeneration-character",
+  "authors": [
+    "Wade Penistone <wadespackages@yahoo.com>"
+  ],
+  "description": "public resource dependencies for character package",
+  "main": "main.js",
+  "keywords": [
+    "regeneration",
+    "character",
+    "public",
+    "resources"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~3.0.3",
+    "backbone": "~1.2.1",
+    "bootswatch-sass": "~3.3.1",
+    "fontawesome": "~4.3.0"
+  }
+}
