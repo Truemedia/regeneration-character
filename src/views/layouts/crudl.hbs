@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js"></script>
 		<script type="text/javascript">
 			function tpl()
 			{
@@ -54,7 +55,10 @@
 			    $('a').on('click', function(e)
 			    {
 			    	e.preventDefault();
-			    	new view({ el: $('.container').get(0) });
+			    	var el = $('.container').get(0);
+			    	$(el).html('Loading the characters.. please wait.');
+			    	new Spinner().spin(el);
+			    	new view({ el: el });
 			    });
 			});
 		</script>
